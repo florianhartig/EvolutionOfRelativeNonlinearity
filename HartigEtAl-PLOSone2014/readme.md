@@ -1,0 +1,1 @@
+Code for Hartig, F.; Münkemüller, T.; Johst, K. & Dieckmann, U. (2014) On the Sympatric Evolution and Evolutionary Stability of Coexistence by Relative Nonlinearity of Competition. PLoS ONE, 9, e94454-.
