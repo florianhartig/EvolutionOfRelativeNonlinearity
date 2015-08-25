@@ -256,7 +256,7 @@ for(i in c(1:1000)){
   
   
   se <- msslvsepopfun(parmat=parmatse,start=c(200,200), time = 500)
-  comb1 <- msslvsepopfun(parmat=parmatcomb2, start=c(200,200), time = 500)
+  comb1 <- msslvsepopfun(parmat=parmatcomb1, start=c(200,200), time = 500)
   
   Ms[i] <- abs(1- mean(se[,1])/mean(se[,2]))
   Mc1[i] <- abs(1- mean(comb1[,1])/mean(comb1[,2]))
@@ -567,13 +567,13 @@ cforestfit <- train(TrainData, TrainClasses,
 
 #Validating Classifier approach---------
 
-mat <- matrix(ncol = 8, nrow=1000)
+mat <- matrix(ncol = 7, nrow=1000)
 for(i in 1:1000){
-  mat[i,]<- classifierfun(mechanism=sample(c("neutral", "rnc", "lv", "se", "komb", "KOMB"),size=1))
+  mat[i,]<- classifierfun(mechanism=sample(c("neutral", "rnc", "lv", "se", "comb1", "comb2"),size=1))
   }
 
-result <- round(predict(cforestfit_k, newdata = mat[,1:6]))
+result <- round(predict(cforestfit, newdata = mat[,1:6]))
 x <- cbind(result,mat[,7])
 
-binom.test(length(which(x[,1]==x)),1000)
+binom.test(length(which(x[,1]==x[,2])),1000)
 
